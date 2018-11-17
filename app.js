@@ -37,13 +37,13 @@ $(document).ready(function() {
     }
   });
   
-  //  Number of people in space and random dogs picture APIs 
+  //Number of people in space and random dogs picture APIs 
   var astrosUrl = 'http://api.open-notify.org/astros.json'
   $.ajax({
     url: astrosUrl,
     method: 'GET',
     success: function(result){
-      // Sets title and appends number of people
+      //Sets title and appends number of people
       $('#numofdogs').html(`Number of people in space represented by dogs = <span>${result.number}</span>`);
       var people = result.people
       // For each person in space pulls random dog picture, creates card with name and current spaceship and adds dog picture

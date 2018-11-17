@@ -77,17 +77,17 @@ a{
   position: fixed;
   top: 0%;
   padding: 10px;
-  background-color: rgba(57, 62, 70, .5);
+  background-color: rgba(57, 62, 70, .8);
   border-radius: 15px;
   margin: 10px;
 }
 #numofdogs{
   padding: 10px;
-  background-color: rgba(57, 62, 70, .5);
+  background-color: rgba(57, 62, 70, .8);
   border-radius: 15px;
   position: fixed;
   top: 2%;
-  right: 30%;
+  right: 10%;
   font-size: 1.2em;
 }
 #dogs{
