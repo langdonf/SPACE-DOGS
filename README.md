@@ -1,6 +1,6 @@
 # Space Dogs!
 
-Pulls fromthree APIs to show a random APOD and the people currently inv space represented by pictures of dogs.
+Pulls from three APIs to show a random APOD and the people currently in space represented by pictures of dogs.
 
 ## Getting Started
 
