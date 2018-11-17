@@ -1,0 +1,104 @@
+body{
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+section#dogs{
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  top: 26%;
+  transform: translatey(0px)
+}
+@keyframes float {
+	0% {
+		box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.8);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 10px 25px 15px 0px rgba(0,0,0,0.4);
+		transform: translatey(-10px);
+	}
+	100% {
+		box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.8);
+		transform: translatey(0px);
+	}
+}
+.card{
+  background-color: rgba(57, 62, 70, .7);
+  border-radius: 15px;
+  width: 25%;
+  transform: translatey(0px);
+	animation: float 4s ease-in-out infinite;
+}
+
+.card:hover{
+  background-color: rgba(12, 46, 100, 0.7);
+  transform: translatey(0px);
+	animation: float 4s ease-in-out infinite;
+  
+}
+
+.cardimg{
+  display: block;
+  width: 90%;
+  margin: 13px auto;
+  border-radius: 10px;
+}
+
+.container{
+  text-align: center;
+}
+
+h5{
+  padding: 5px 0 10px 0;
+}
+
+h3, h4, h5, p{
+  color: white;
+  font-family: 'Space Mono', monospace;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+#img{
+  width: 100vw;
+  position: sticky;
+}
+
+#title{
+  position: fixed;
+  top: 0%;
+  padding: 10px;
+  background-color: rgba(57, 62, 70, .5);
+  border-radius: 15px;
+  margin: 10px;
+}
+#numofdogs{
+  padding: 10px;
+  background-color: rgba(57, 62, 70, .5);
+  border-radius: 15px;
+  position: fixed;
+  top: 8%;
+  left: 10%;
+}
+
+#explanation {
+  position: fixed;
+  bottom: 3%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(57, 62, 70, .5);
+  border-radius: 15px;
+  margin: 10px;
+}
+
+footer {
+  bottom: 0;
+  right: 20px;
+  position: fixed;
+}
