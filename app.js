@@ -37,28 +37,26 @@ $(document).ready(function() {
     }
   });
   
-  // Nasa number of people in space and random dogs picture APIs 
+  //  Number of people in space and random dogs picture APIs 
   var astrosUrl = 'http://api.open-notify.org/astros.json'
   $.ajax({
     url: astrosUrl,
     method: 'GET',
     success: function(result){
       // Sets title and appends number of people
-      $('#numofdogs').text(`Number of people in space represented by dogs = ${result.number}`);
+      $('#numofdogs').html(`Number of people in space represented by dogs = <span>${result.number}</span>`);
       var people = result.people
-      console.log(people);
       // For each person in space pulls random dog picture, creates card with name and current spaceship and adds dog picture
       people.forEach(person => {
+        //Removes the space from the astronaut name so I can plug it into wikipedia
         var searchTerm = person.name.split(' ').join('_')
-        console.log(searchTerm);
         var dogApi = 'https://dog.ceo/api/breeds/image/random'
           $.ajax({
             url: dogApi,
             method: 'GET',
             success: function(result){
-              console.log(result);
               var card = `<div class='card'>
-                            <a href="https://en.wikipedia.org/wiki/${searchTerm}" ><img class="cardimg" src=${result.message}>
+                          <a href="https://en.wikipedia.org/wiki/${searchTerm}"><img class="cardimg" src=${result.message}>
                             <div class="container">
                               <h4>${person.name}</h4>
                               <h5>${person.craft}</h5>

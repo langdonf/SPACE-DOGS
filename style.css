@@ -61,6 +61,12 @@ h3, h4, h5, p{
   margin-block-start: 0;
   margin-block-end: 0;
 }
+span{
+  color: red;
+}
+a{
+  text-decoration: none;
+}
 
 #img{
   width: 100vw;
