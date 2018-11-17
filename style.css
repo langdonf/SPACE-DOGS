@@ -82,6 +82,7 @@ h3, h4, h5, p{
   position: fixed;
   top: 2%;
   right: 30%;
+  font-size: 1.2em;
 }
 #dogs{
   position: fixed;

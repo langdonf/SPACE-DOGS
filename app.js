@@ -1,43 +1,56 @@
 $(document).ready(function() {
+  // Date of first APOD in Unix Time
   var min = new Date(1995, 5, 16).getTime();
+  // Current date in Unix Time
   var max = new Date().getTime();
+  //Subtracts min time from max time and bultiplies by random number between 0 and 1 to get random time between min and max
   var randomDate = Math.round(min+(Math.random()*(max-min)));
   console.log(randomDate);
-  randomDate = new Date(randomDate) //converts back to regular format
+  //converts to regular format
+  randomDate = new Date(randomDate) 
   console.log(randomDate);
-  var randomYear = randomDate.getFullYear().toString();
+  //pulls year in YYYY format
+  var randomYear = randomDate.getFullYear();
+  //pulls month but returns only one digit if less than 10 and is 0 indexed, add 1, convert to string so I can add a 0 to the front, and pulls the last two digits so it comes out in in MM format
   var randomMonth = (0+(randomDate.getMonth()+1).toString()).slice(-2);
+  //pulls day but returns 1 digit if less than 10, convert to string, and add 0, pulls last two digits
   var randomDay = (0+(randomDate.getDate().toString())).slice(-2);
   console.log(randomYear);
   console.log(randomMonth);
   console.log(randomDay);
+
+  //Nasa Astronomy Picture of the Day API/
   var apodUrl = `https://api.nasa.gov/planetary/apod?api_key=BPygtzXU1HsTWk8Vvlf4RQnlP55Dwcr0R81avSIl&date=${randomYear}-${randomMonth}-${randomDay}`;
-  
   $.ajax({
     url: apodUrl,
     method: 'GET',
     success: function(result){
+      //Sets background image, title, description, and copyright info
       $("#img").attr("src", result.url);
       $("#title").text(result.title);
       $("#explanation").text(result.explanation);
       if("copyright" in result) {
         $("#copyright").text("Image Credits: " + result.copyright);
-      }
-      else {
+      } else {
         $("#copyright").text("Image Credits: " + "Public Domain");
       } 
     }
   });
   
-  
-  var peepsUrl = 'http://api.open-notify.org/astros.json'
+  // Nasa number of people in space and random dogs picture APIs 
+  var astrosUrl = 'http://api.open-notify.org/astros.json'
   $.ajax({
-    url: peepsUrl,
+    url: astrosUrl,
     method: 'GET',
     success: function(result){
+      // Sets title and appends number of people
       $('#numofdogs').text(`Number of people in space represented by dogs = ${result.number}`);
       var people = result.people
+      console.log(people);
+      // For each person in space pulls random dog picture, creates card with name and current spaceship and adds dog picture
       people.forEach(person => {
+        var searchTerm = person.name.split(' ').join('_')
+        console.log(searchTerm);
         var dogApi = 'https://dog.ceo/api/breeds/image/random'
           $.ajax({
             url: dogApi,
@@ -45,17 +58,16 @@ $(document).ready(function() {
             success: function(result){
               console.log(result);
               var card = `<div class='card'>
-                              <img class="cardimg" src=${result.message}>
-                              <div class="container">
-                                <h4>${person.name}</h4>
-                                <h5>${person.craft}</h5>
-                              </div>
-                            </div>`;
+                            <a href="https://en.wikipedia.org/wiki/${searchTerm}" ><img class="cardimg" src=${result.message}>
+                            <div class="container">
+                              <h4>${person.name}</h4>
+                              <h5>${person.craft}</h5>
+                            </div></a>
+                          </div>`;
                 $('#dogs').append(card) 
             }
           });
       });
-      }
     }
-  );
-}) 
+  });
+});
