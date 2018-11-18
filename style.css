@@ -23,7 +23,7 @@ body{
 .card{
   background-color: rgba(57, 62, 70, .7);
   border-radius: 15px;
-  width: 20%;
+  width: 25%;
   transform: translatey(0px);
 	animation: float 4s ease-in-out infinite;
 }
@@ -86,8 +86,8 @@ a{
   background-color: rgba(57, 62, 70, .8);
   border-radius: 15px;
   position: fixed;
-  top: 2%;
-  right: 10%;
+  top: 7%;
+  right: 6%;
   font-size: 1.2em;
 }
 #dogs{
@@ -102,7 +102,7 @@ a{
 
 #explanation {
   position: fixed;
-  top: 75%;
+  bottom: 3%;
   margin: 0 auto;
   text-align: center;
   padding: 10px;
@@ -112,7 +112,7 @@ a{
 }
 
 footer {
-  top: 97%;
+  bottom: 1%;
   right: 20px;
   position: fixed;
 }
