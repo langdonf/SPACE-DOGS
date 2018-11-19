@@ -26,6 +26,7 @@ $(document).ready(function() {
     method: 'GET',
     success: function(result){
       //Sets background image, title, description, and copyright info
+      console.log(result);
       $("#img").attr("src", result.url);
       $("#title").text(result.title);
       $("#explanation").text(result.explanation);
@@ -62,7 +63,7 @@ $(document).ready(function() {
                               <h5>${person.craft}</h5>
                             </div></a>
                           </div>`;
-                $('#dogs').append(card) 
+              $('#dogs').append(card) 
             }
           });
       });

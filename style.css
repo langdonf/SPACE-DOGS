@@ -89,6 +89,7 @@ a{
   top: 7%;
   right: 6%;
   font-size: 1.2em;
+  z-index: 0;
 }
 #dogs{
   position: fixed;
@@ -96,8 +97,10 @@ a{
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  top: 15%;
+  top: 14%;
   transform: translatey(0px);
+  z-index: 10;
+  min-height: 25%;
 }
 
 #explanation {
@@ -109,10 +112,48 @@ a{
   background-color: rgba(57, 62, 70, .5);
   border-radius: 15px;
   margin: 10px;
+  max-height:250px;
+  overflow-y:auto;
 }
 
+#button{
+  text-decoration: none;
+  color: white;
+  font-family: 'Space Mono', monospace;
+  position: fixed;
+  bottom: 1%;
+  left: 1%;
+}
 footer {
   bottom: 1%;
   right: 20px;
   position: fixed;
+}
+@media (min-width: 1400px) { 
+  .card{
+    width: 20%;
+  }
+  #dogs{
+    position: fixed;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    top: 15%;
+    transform: translatey(0px);
+    z-index: 10;
+  }
+  #explanation {
+    position: fixed;
+    bottom: 3%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(57, 62, 70, .5);
+    border-radius: 15px;
+    margin: 10px;
+    max-height:450px;
+    overflow-y:auto;
+  }
+
 }
