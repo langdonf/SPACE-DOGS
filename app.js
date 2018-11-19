@@ -35,6 +35,9 @@ $(document).ready(function() {
       } else {
         $("#copyright").text("Image Credits: " + "Public Domain");
       } 
+    },
+    error: function(e1,e2,e3){
+      console.log(e2);
     }
   });
   
@@ -44,6 +47,7 @@ $(document).ready(function() {
     url: astrosUrl,
     method: 'GET',
     success: function(result){
+      console.log(result);
       //Sets title and appends number of people
       $('#numofdogs').html(`Number of people in space represented by dogs = <span>${result.number}</span>`);
       var people = result.people
@@ -64,9 +68,13 @@ $(document).ready(function() {
                             </div></a>
                           </div>`;
               $('#dogs').append(card) 
+            },
+            error: function(e1,e2,e3){
+              console.log(e2);
             }
           });
       });
     }
   });
 });
+
